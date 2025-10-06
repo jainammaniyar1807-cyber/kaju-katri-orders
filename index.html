@@ -1,177 +1,193 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Kaju Katri Orders - Diwali 2025</title>
-<style>
-  body{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;margin:0;background:#f7f7fb;color:#111}
-  .container{max-width:900px;margin:20px auto;padding:18px;background:white;border-radius:12px;box-shadow:0 6px 18px rgba(16,24,40,.08)}
-  h1{margin:0 0 12px;font-size:20px}
-  label{display:block;margin-top:12px;font-weight:600;font-size:13px}
-  input[type=text], textarea, select{width:100%;padding:10px;border:1px solid #e2e8f0;border-radius:8px;font-size:14px}
-  .row{display:flex;gap:12px}
-  .col{flex:1}
-  button{margin-top:14px;padding:10px 14px;border:none;border-radius:10px;background:#0f62fe;color:white;font-weight:700;cursor:pointer}
-  table{width:100%;border-collapse:collapse;margin-top:16px}
-  th,td{padding:8px;border-bottom:1px solid #eef2f7;font-size:13px;text-align:left}
-  .meta{display:flex;gap:10px;margin-top:8px;align-items:center}
-  .small{font-size:12px;color:#69707a}
-  @media(max-width:720px){.row{flex-direction:column}}
-</style>
+  <meta charset="UTF-8">
+  <title>Kaju Katri Orders - Diwali 2025</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #faf7f2;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 15px;
+      width: 100%;
+      background: #1a73e8;
+      color: white;
+      padding: 10px;
+      border: none;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1558b0;
+    }
+  </style>
 </head>
 <body>
-<div class="container">
-  <h1>Kaju Katri Orders — Diwali 2025</h1>
-  <div class="small">Internal Order Entry — Mobile & Desktop friendly</div>
 
-  <div id="form">
+  <h2>Kaju Katri Orders - Diwali 2025</h2>
+
+  <form id="orderForm">
     <label>Customer Name</label>
-    <input id="customerName" type="text" placeholder="e.g., Rahul Sharma">
+    <input type="text" id="customerName" required>
 
     <label>Mobile Number</label>
-    <input id="mobileNumber" type="text" placeholder="10-digit number">
+    <input type="text" id="mobileNumber" maxlength="10" required>
 
     <label>Address</label>
-    <textarea id="address" rows="2" placeholder="Customer address (area, city)"></textarea>
+    <input type="text" id="address" required>
 
     <label>Sweet Type</label>
-    <select id="sweetType">
-      <option value="">-- Select sweet --</option>
-      <option>Kaju Katri (Varakh Vagar)</option>
-      <option>Kaju Katri (Varakh Vali)</option>
-      <option>Kesar Katri</option>
-      <option>Kaju Anjeer Roll</option>
-      <option>Kaju Pista Roll</option>
-      <option>Kaju Cassatta</option>
+    <select id="sweetType" required>
+      <option value="">Select</option>
+      <option value="Kaju Katri (Varak Vagar)">Kaju Katri (Varak Vagar)</option>
+      <option value="Kaju Katri (Varak Vali)">Kaju Katri (Varak Vali)</option>
+      <option value="Kesar Katri">Kesar Katri</option>
+      <option value="Kaju Anjeer Roll">Kaju Anjeer Roll</option>
+      <option value="Kaju Pista Roll">Kaju Pista Roll</option>
+      <option value="Kaju Cassatta">Kaju Cassatta</option>
     </select>
 
-    <div class="row">
-      <div class="col">
-        <label>Quantity</label>
-        <select id="quantity">
-          <option value="">-- Select --</option>
-          <option>250gms</option>
-          <option>500gms</option>
-        </select>
-      </div>
-      <div class="col">
-        <label>Rate (₹)</label>
-        <input id="rate" type="text" readonly placeholder="Auto">
-      </div>
-    </div>
+    <label>Quantity</label>
+    <select id="quantity" required>
+      <option value="">Select</option>
+      <option value="250">250 gms</option>
+      <option value="500">500 gms</option>
+    </select>
 
-    <label>Total Amount (₹)</label>
-    <input id="total" type="text" readonly placeholder="Auto">
+    <label>Number of Boxes</label>
+    <input type="number" id="numberOfBoxes" min="1" value="1" required>
+
+    <label>Rate (₹)</label>
+    <input type="text" id="rate" readonly>
+
+    <label>Total (₹)</label>
+    <input type="text" id="total" readonly>
 
     <label>Payment Status</label>
-    <select id="paymentStatus">
-      <option>Pending</option>
-      <option>Paid</option>
+    <select id="paymentStatus" required>
+      <option value="">Select</option>
+      <option value="Paid">Paid</option>
+      <option value="Pending">Pending</option>
     </select>
 
-    <button id="submitBtn">Save Order</button>
+    <button type="button" id="submitBtn">Submit Order</button>
+  </form>
 
-    <div class="meta">
-      <button id="openSheet">Open Google Sheet</button>
-      <div class="small">Orders saved to your shared Google Sheet.</div>
-    </div>
-  </div>
+  <script>
+    const WEBAPP_URL = 'PASTE_YOUR_APPS_SCRIPT_WEBAPP_URL_HERE';
 
-  <h3 style="margin-top:18px">Recent Orders (this session)</h3>
-  <table id="ordersTable">
-    <thead><tr>
-      <th>Customer</th><th>Mobile</th><th>Sweet</th><th>Qty</th><th>Rate</th><th>Total</th><th>Payment</th>
-    </tr></thead>
-    <tbody></tbody>
-  </table>
+    const rateMap = {
+      "Kaju Katri (Varak Vagar)": { "250": 190, "500": 380 },
+      "Kaju Katri (Varak Vali)": { "250": 210, "500": 410 },
+      "Kesar Katri": { "250": 210, "500": 410 },
+      "Kaju Anjeer Roll": { "250": 230, "500": 450 },
+      "Kaju Pista Roll": { "250": 230, "500": 450 },
+      "Kaju Cassatta": { "250": 230, "500": 450 }
+    };
 
-</div>
+    const $ = (id) => document.getElementById(id);
 
-<script>
-const WEBAPP_URL = 'https://script.google.com/macros/s/AKfycby5Wwqle5geh3-Juikq_I3E3G9W4XidTxHuY_IS_nqQnX83-gkRcGiQg-WW_dWnilMDpg/exec'; // <<-- replace with your Apps Script web app URL
-const SHEET_URL = 'https://docs.google.com/spreadsheets/d/1iDOtoIx0t5Dc7vzJaqfWFMf_OlpzbsV_FsVsNVj4hnc/edit';
+    function updateRateAndTotal() {
+      const sweetType = $('sweetType').value;
+      const quantity = $('quantity').value;
+      const boxes = parseInt($('numberOfBoxes').value) || 0;
 
-// rate map identical to server
-const rateMap = {
-  "Kaju Katri (Varakh Vagar)": {"250gms":190,"500gms":380},
-  "Kaju Katri (Varakh Vali)": {"250gms":210,"500gms":410},
-  "Kesar Katri": {"250gms":210,"500gms":410},
-  "Kaju Anjeer Roll": {"250gms":230,"500gms":450},
-  "Kaju Pista Roll": {"250gms":230,"500gms":450},
-  "Kaju Cassatta": {"250gms":230,"500gms":450}
-};
-
-function $(id){ return document.getElementById(id); }
-
-function computeRateAndTotal(){
-  const sweet = $('sweetType').value;
-  const qty = $('quantity').value;
-  if (sweet && qty && rateMap[sweet] && rateMap[sweet][qty]) {
-    const r = rateMap[sweet][qty];
-    $('rate').value = r;
-    $('total').value = r;
-  } else {
-    $('rate').value = '';
-    $('total').value = '';
-  }
-}
-
-$('sweetType').addEventListener('change', computeRateAndTotal);
-$('quantity').addEventListener('change', computeRateAndTotal);
-
-const tbody = document.querySelector('#ordersTable tbody');
-function addRowLocal(o){
-  const tr = document.createElement('tr');
-  tr.innerHTML = `<td>${o.customerName}</td><td>${o.mobileNumber}</td><td>${o.sweetType}</td><td>${o.quantity}</td><td>${o.rate}</td><td>${o.total}</td><td>${o.paymentStatus}</td>`;
-  tbody.prepend(tr);
-}
-
-// Submit handler
-$('submitBtn').addEventListener('click', async ()=>{
-  const payload = {
-    customerName: $('customerName').value || '',
-    mobileNumber: $('mobileNumber').value || '',
-    address: $('address').value || '',
-    sweetType: $('sweetType').value || '',
-    quantity: $('quantity').value || '',
-    paymentStatus: $('paymentStatus').value || ''
-  };
-
-  // Simple validation
-  if (!payload.customerName || !payload.mobileNumber || !payload.sweetType || !payload.quantity) {
-    alert('Please fill Customer Name, Mobile, Sweet Type and Quantity.');
-    return;
-  }
-
-  // compute rate locally too
-  payload.rate = rateMap[payload.sweetType] && rateMap[payload.sweetType][payload.quantity] ? rateMap[payload.sweetType][payload.quantity] : 0;
-  payload.total = payload.rate;
-
-  // send to Apps Script
-  try {
-    const res = await fetch(WEBAPP_URL, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(payload)
-    });
-    const json = await res.json();
-    if (json.status === 'success') {
-      addRowLocal(payload);
-      // clear some fields
-      $('customerName').value=''; $('mobileNumber').value=''; $('address').value=''; $('sweetType').value=''; $('quantity').value=''; $('rate').value=''; $('total').value=''; $('paymentStatus').value='Pending';
-      alert('Order saved successfully');
-    } else {
-      alert('Error saving order: ' + (json.message||'unknown'));
+      if (sweetType && quantity && rateMap[sweetType]) {
+        const rate = rateMap[sweetType][quantity] || 0;
+        $('rate').value = rate;
+        $('total').value = rate * boxes;
+      } else {
+        $('rate').value = '';
+        $('total').value = '';
+      }
     }
-  } catch (err) {
-    console.error(err);
-    alert('Failed to send order. Possible CORS or network issue. See console.');
-  }
-});
 
-$('openSheet').addEventListener('click', ()=> window.open(SHEET_URL, '_blank'));
+    $('sweetType').addEventListener('change', updateRateAndTotal);
+    $('quantity').addEventListener('change', updateRateAndTotal);
+    $('numberOfBoxes').addEventListener('input', updateRateAndTotal);
 
-</script>
+    $('submitBtn').addEventListener('click', async ()=>{
+      const customerName = $('customerName').value.trim();
+      const mobileNumber = $('mobileNumber').value.trim();
+      const address = $('address').value.trim();
+      const sweetType = $('sweetType').value;
+      const quantity = $('quantity').value;
+      const numberOfBoxes = $('numberOfBoxes').value.trim();
+      const paymentStatus = $('paymentStatus').value;
+      const rate = $('rate').value;
+      const total = $('total').value;
+
+      // Validation
+      if (!customerName || !mobileNumber || !address || !sweetType || !quantity || !numberOfBoxes || !paymentStatus) {
+        alert('Please fill all fields');
+        return;
+      }
+      if (!/^\d{10}$/.test(mobileNumber)) {
+        alert('Please enter a valid 10-digit mobile number');
+        return;
+      }
+
+      const payload = {
+        customerName,
+        mobileNumber,
+        address,
+        sweetType,
+        quantity,
+        numberOfBoxes,
+        rate,
+        total,
+        paymentStatus
+      };
+
+      try {
+        const res = await fetch(WEBAPP_URL, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(payload)
+        });
+        const json = await res.json();
+        if (json.status === 'success') {
+          alert('✅ Order saved successfully!');
+          $('orderForm').reset();
+          $('rate').value = '';
+          $('total').value = '';
+        } else {
+          alert('Error saving order');
+        }
+      } catch (err) {
+        console.error(err);
+        alert('❌ Failed to send order. Please check your internet or deployment settings.');
+      }
+    });
+  </script>
+
 </body>
 </html>
